@@ -20,17 +20,40 @@ export default function Counter(): React.ReactNode {
   }, []);
   
   return (
-    <div>
-      <h2>Houses demolished since 01.01.2026</h2>
-      <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-      <CountUp
-          start={0}
-          end={count}
-          duration={2}
-          separator=","
-          preserveValue={true}
-        ></CountUp>
-        </h1>
+    <div className="relative">
+      <svg className="absolute w-0 h-0">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch" result="turbulence" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" in="turbulence" result="dark" />
+        </filter>
+      </svg>
+      <div className="absolute -inset-48 -z-10">
+        <div 
+          className="absolute inset-0 opacity-80"
+          style={{ background: "radial-gradient(circle at center, black 0%, black 20%, transparent 60%)" }}
+        />
+        <div 
+          className="absolute inset-0 opacity-60"
+          style={{ 
+            filter: "url(#noise)",
+            maskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 70%)"
+          }}
+        />
+      </div>
+      
+      <div className="flex flex-col items-center justify-center gap-0 text-center sm:items-start sm:text-left p-6">
+        <h2 className="whitespace-nowrap text-s leading-none tracking-tight text-white/80">houses demolished in europe since 01.01.2026</h2>
+        <h1 className="text-8xl sm:text-9xl font-semibold leading-none tracking-tight text-white tabular-nums">
+        <CountUp
+            start={0}
+            end={count}
+            duration={2}
+            separator="."
+            preserveValue={true}
+          ></CountUp>
+          </h1>
+      </div>
     </div>
   );
 }
