@@ -12,13 +12,13 @@ export default function Counter(): React.ReactNode {
       dif = Math.round((dif / 1000) / 60);
       setCount(dif);
     };
-    
-    calculateTime(); 
-    const interval = setInterval(calculateTime, 1000); 
-    
+
+    calculateTime();
+    const interval = setInterval(calculateTime, 1000);
+
     return () => clearInterval(interval);
   }, []);
-  
+
   return (
     <div className="relative">
       <svg className="absolute w-0 h-0">
@@ -28,31 +28,31 @@ export default function Counter(): React.ReactNode {
         </filter>
       </svg>
       <div className="absolute -inset-48 -z-10">
-        <div 
+        <div
           className="absolute inset-0 opacity-80"
           style={{ background: "radial-gradient(circle at center, black 0%, black 20%, transparent 60%)" }}
         />
-        <div 
+        <div
           className="absolute inset-0 opacity-60"
-          style={{ 
+          style={{
             filter: "url(#noise)",
-            maskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 70%)",
-            WebkitMaskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 70%)"
+            maskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 50%)",
+            WebkitMaskImage: "radial-gradient(circle at center, black 0%, black 30%, transparent 50%)"
           }}
         />
       </div>
-      
+
       <div className="flex flex-col items-center justify-center gap-0 text-center sm:items-start sm:text-left p-6">
         <h2 className="whitespace-nowrap text-s leading-none tracking-tight text-white/80">houses demolished in europe since 01.01.2026</h2>
         <h1 className="text-8xl sm:text-9xl font-semibold leading-none tracking-tight text-white tabular-nums">
-        <CountUp
+          <CountUp
             start={0}
             end={count}
             duration={2}
             separator="."
             preserveValue={true}
           ></CountUp>
-          </h1>
+        </h1>
       </div>
     </div>
   );
