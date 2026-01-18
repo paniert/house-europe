@@ -5,7 +5,6 @@ import CountUp from "react-countup";
 export default function Counter(): React.ReactNode {
   const [count, setCount] = useState<number>(0);
 
-
   useEffect(() => {
     const calculateTime = () => {
       let dif: number = (new Date().getTime() - new Date("2026-01-01").getTime());
@@ -27,7 +26,7 @@ export default function Counter(): React.ReactNode {
           <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0" in="turbulence" result="dark" />
         </filter>
       </svg>
-      <div className="absolute -inset-48 -z-10">
+      <div className="absolute -inset-69 -z-10">
         <div
           className="absolute inset-0 opacity-80"
           style={{ background: "radial-gradient(circle at center, black 0%, black 20%, transparent 60%)" }}
@@ -43,16 +42,17 @@ export default function Counter(): React.ReactNode {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-0 text-center sm:items-start sm:text-left p-6">
-        <h2 className="whitespace-nowrap text-s leading-none tracking-tight text-white/80">houses demolished in europe since 01.01.2026</h2>
         <h1 className="text-8xl sm:text-9xl font-semibold leading-none tracking-tight text-white tabular-nums">
           <CountUp
-            start={0}
+            start={count}
             end={count}
             duration={2}
             separator="."
             preserveValue={true}
           ></CountUp>
         </h1>
+      <h2 className="whitespace-nowrap text-s  sm:text-base leading-none tracking-tight text-white/80 sm:pl-1.75">houses demolished in europe since 01.01.2026</h2>
+
       </div>
     </div>
   );

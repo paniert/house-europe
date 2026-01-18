@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "House Europe",
-  description: "Houses demolished in Europe since 01.01.2026",
+  title: "house europe",
+  description: "houses demolished in europe since 01.01.2026",
 };
 
 export default function RootLayout({
