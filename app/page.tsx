@@ -3,7 +3,7 @@ import WreckingBall from "./components/wrecking-ball";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-zinc-50 font-sans dark:bg-black overflow-hidden">
+    <div className="relative min-h-screen font-sans bg-black overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 z-0">
         <WreckingBall />
       </div>
